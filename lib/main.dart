@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ricsha/screens/register_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Uber Clone',
       theme: ThemeData.dark(), // Apply dark mode theme
-      home: const UberHomePage(title: 'RICSHA'),
+      initialRoute: '/', // Set initial route
+      routes: {
+        '/': (context) => const UberHomePage(title: 'RICSHA'), // Home route
+        '/register': (context) => RegisterScreen(), // Register route
+      },
     );
   }
 }
@@ -42,7 +47,10 @@ class _UberHomePageState extends State<UberHomePage> {
               height: 300,
               color: Colors.grey,
               child: Center(
-                child: Text('Map Placeholder', style: TextStyle(color: Colors.white)), // Adjust text color for visibility
+                child: Text('Map Placeholder',
+                    style: TextStyle(
+                        color:
+                            Colors.white)), // Adjust text color for visibility
               ),
             ),
             SizedBox(height: 20),
@@ -54,7 +62,11 @@ class _UberHomePageState extends State<UberHomePage> {
                 children: <Widget>[
                   Text(
                     'Select Ride Type:',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white), // Adjust text color for visibility
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color:
+                            Colors.white), // Adjust text color for visibility
                   ),
                   SizedBox(height: 10),
                   ElevatedButton(
@@ -79,8 +91,12 @@ class _UberHomePageState extends State<UberHomePage> {
                 backgroundColor: Colors.blue,
                 child: Icon(Icons.person),
               ),
-              title: Text('rahul', style: TextStyle(color: Colors.white)), // Adjust text color for visibility
-              subtitle: Text('5.0 ★', style: TextStyle(color: Colors.white)), // Adjust text color for visibility
+              title: Text('rahul',
+                  style: TextStyle(
+                      color: Colors.white)), // Adjust text color for visibility
+              subtitle: Text('5.0 ★',
+                  style: TextStyle(
+                      color: Colors.white)), // Adjust text color for visibility
               trailing: IconButton(
                 icon: Icon(Icons.settings),
                 onPressed: () {},
@@ -88,17 +104,23 @@ class _UberHomePageState extends State<UberHomePage> {
             ),
             ListTile(
               leading: Icon(Icons.history),
-              title: Text('Ride History', style: TextStyle(color: Colors.white)), // Adjust text color for visibility
+              title: Text('Ride History',
+                  style: TextStyle(
+                      color: Colors.white)), // Adjust text color for visibility
               onTap: () {},
             ),
             ListTile(
               leading: Icon(Icons.payment),
-              title: Text('Payment', style: TextStyle(color: Colors.white)), // Adjust text color for visibility
+              title: Text('Payment',
+                  style: TextStyle(
+                      color: Colors.white)), // Adjust text color for visibility
               onTap: () {},
             ),
             ListTile(
               leading: Icon(Icons.help),
-              title: Text('Help', style: TextStyle(color: Colors.white)), // Adjust text color for visibility
+              title: Text('Help',
+                  style: TextStyle(
+                      color: Colors.white)), // Adjust text color for visibility
               onTap: () {},
             ),
             SizedBox(height: 20),
@@ -112,14 +134,18 @@ class _UberHomePageState extends State<UberHomePage> {
                 child: Text('Login'),
               ),
             ),
-            SizedBox(height: 80), // Add some extra space at the bottom for better scrolling
+            SizedBox(
+                height:
+                    80), // Add some extra space at the bottom for better scrolling
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/register');
+        },
         tooltip: 'Request Ride',
-        child: Icon(Icons.directions_car),
+        child: Icon(Icons.app_registration_rounded),
       ),
     );
     var scaffold2 = scaffold;
